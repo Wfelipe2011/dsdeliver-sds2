@@ -30,7 +30,7 @@ function OrderLocation({onChangeLocation}: Props) {
     const loadOptions = async (inputValue: string, callback: (places: Place[]) => void) => {
         const response = await fetchLocalMapBox(inputValue);
       
-        const places = response.data.features.map((item: any) => {
+        const place = response.data.features.map((item: any) => {
           return ({
             label: item.place_name,
             value: item.place_name,
@@ -42,7 +42,6 @@ function OrderLocation({onChangeLocation}: Props) {
           });
         });
       
-        callback(places);
       };
       
       const handleChangeSelect = (place: Place) => {
