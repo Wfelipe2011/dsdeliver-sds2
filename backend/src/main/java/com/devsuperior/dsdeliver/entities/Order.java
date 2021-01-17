@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "tb_order")
 public class Order implements Serializable{
 	
-	
+	//comentario
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -97,6 +97,14 @@ public class Order implements Serializable{
 		this.status = status;
 	}
 
+	public Double getTotal() {
+		double sum = 0.0;
+		for (Product p : products) {
+			sum = sum + p.getPrice();
+		}
+		return sum;
+	}
+	
 	public Set<Product> getProducts() {
 		return products;
 	}
